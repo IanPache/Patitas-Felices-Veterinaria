@@ -11,7 +11,7 @@ import jakarta.persistence.Table;
 public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long idUsuario;
+    private Long idUsuario;
 
     private String nombreUsuario;
     private String contraUsuario;
@@ -20,7 +20,7 @@ public class Usuario {
         return idUsuario;
     }
 
-    public void setIdUsuario(long idUsuario){
+    public void setIdUsuario(Long idUsuario){
         this.idUsuario = idUsuario;
     }
 

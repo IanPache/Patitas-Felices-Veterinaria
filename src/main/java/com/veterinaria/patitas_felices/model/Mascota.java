@@ -11,7 +11,7 @@ import jakarta.persistence.Table;
 public class Mascota {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
-    private long idMascota;
+    private Long idMascota;
     
     private long idUsuario;
     private String nombreMascota;
@@ -22,11 +22,11 @@ public class Mascota {
     private boolean mascotaCastrada;
     private boolean mascotaVacunada;
 
-    public long getIdMascota(){
+    public Long getIdMascota(){
         return idMascota;
     }
 
-    public void setIdMascota(long idMascota){
+    public void setIdMascota(Long idMascota){
         this.idMascota = idMascota;
     }
 
