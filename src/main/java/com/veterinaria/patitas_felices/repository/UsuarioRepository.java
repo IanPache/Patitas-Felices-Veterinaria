@@ -6,4 +6,7 @@ import com.veterinaria.patitas_felices.model.Usuario;
 
 public interface UsuarioRepository extends JpaRepository<Usuario, Long>{
     List<Usuario> findByNombreContaining(String nombreUsuario);
+
+    List<Usuario> findByEmailAndPassword(String email, String password);
+
 }

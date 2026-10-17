@@ -18,10 +18,12 @@ public class UsuarioService {
         this.usuarioRepository = usuarioRepository;
     }
 
+//---Lista los Usuarios---
     public List<Usuario> listar(){
         return usuarioRepository.findAll();
     }
 
+//---Busca entre las usuarios creados por su id---
     public Usuario buscarPorId(Long id){
         Optional<Usuario> usuario =  usuarioRepository.findById(id);
         if(usuario.isPresent()){
@@ -33,10 +35,12 @@ public class UsuarioService {
         );
     }
 
+//---Busca entre las usuarios creados por su nombre---
     public List<Usuario> buscarPorNombre(String nombre){
         return usuarioRepository.findByNombreContaining(nombre);
     }
 
+//---Crea usuarios---
     public Usuario crearUsuario(Usuario usuario){
     if(usuario.getNombreUsuario() == null || usuario.getNombreUsuario().isBlank()){
         throw new ResponseStatusException(
@@ -54,6 +58,7 @@ public class UsuarioService {
         return usuarioRepository.save(usuario);
     }
 
+//---Modifica el nombre de los usuarios---
         public Usuario modificarNombre(Long id, Usuario datosNuevos){
     Usuario usuario = buscarPorId(id);
     if(datosNuevos.getNombreUsuario() == null || datosNuevos.getNombreUsuario().isBlank()){
@@ -66,6 +71,7 @@ public class UsuarioService {
         return usuarioRepository.save(usuario);
     }
 
+//---Elimina usuarios---
 public void eliminarUsuario(Long id) {
     Usuario usuario = buscarPorId(id);
     usuarioRepository.delete(usuario);

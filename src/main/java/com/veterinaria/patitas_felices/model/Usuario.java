@@ -15,6 +15,7 @@ public class Usuario {
 
     private String nombreUsuario;
     private String contraUsuario;
+    private String emailUsuario;
 
     public long getIdUsuario(){
         return idUsuario;
@@ -38,5 +39,13 @@ public class Usuario {
 
     public void setContraUsuario(String contraUsuario){
         this.contraUsuario = contraUsuario;
+    }
+
+    public String getEmailUsuario(){
+        return emailUsuario;
+    }
+
+    public void setEmailUsuario(String emailUsuario){
+        this.emailUsuario = emailUsuario;
     }
 }

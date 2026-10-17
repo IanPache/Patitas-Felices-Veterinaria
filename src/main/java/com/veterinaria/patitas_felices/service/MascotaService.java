@@ -17,10 +17,12 @@ public class MascotaService {
         this.mascotaRepository = mascotaRepository;
     }
 
+//---Lista todas las mascotas creadas---
     public List<Mascota> listar(){
         return mascotaRepository.findAll();
     }
 
+//---Busca entre las mascotas creadas por su id---
     public Mascota buscarPorId(Long id){
         Optional<Mascota> mascota =  mascotaRepository.findById(id);
         if(mascota.isPresent()){
@@ -32,10 +34,12 @@ public class MascotaService {
         );
     }
 
+//---Busca entre las mascotas creadas por su nombre---
     public List<Mascota> buscarPorNombre(String nombre){
         return mascotaRepository.findByNombreContaining(nombre);
     }
 
+//---Crea una mascota---
     public Mascota crearMascota(Mascota usuario){
     if(usuario.getNombreMascota() == null || usuario.getNombreMascota().isBlank()){
         throw new ResponseStatusException(
@@ -46,25 +50,27 @@ public class MascotaService {
         if(usuario.getEspecieMascota() == null || usuario.getEspecieMascota().isBlank()){
         throw new ResponseStatusException(
                 HttpStatus.BAD_REQUEST,
-                "La Contraseña es obligatoria"
+                "La Especie es obligatoria"
         );
     }
     usuario.setIdMascota(null);
         return mascotaRepository.save(usuario);
     }
 
+//---Modifica los datos de la mascota por el id---
         public Mascota modificarMascota(Long id, Mascota datosNuevos){
     Mascota mascota = buscarPorId(id);
     if(datosNuevos.getNombreMascota() == null || datosNuevos.getNombreMascota().isBlank()){
         throw new ResponseStatusException(
                 HttpStatus.BAD_REQUEST,
-                "La Contraseña es obligatoria"
+                "El Nombre es obligatorio"
         );
     }
         mascota.setNombreMascota(datosNuevos.getNombreMascota());
         return mascotaRepository.save(mascota);
     }
 
+//---Elimina una mascota por id---
 public void eliminarMascota(Long id) {
     Mascota mascota = buscarPorId(id);
     mascotaRepository.delete(mascota);
