@@ -36,7 +36,7 @@ public class MascotaService {
 
 //---Busca entre las mascotas creadas por su nombre---
     public List<Mascota> buscarPorNombre(String nombre){
-        return mascotaRepository.findByNombreContaining(nombre);
+        return mascotaRepository.findByNombreMascotaContainingIgnoreCase(nombre);
     }
 
 //---Crea una mascota---

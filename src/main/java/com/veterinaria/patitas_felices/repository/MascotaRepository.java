@@ -5,5 +5,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import com.veterinaria.patitas_felices.model.Mascota;
 
 public interface MascotaRepository extends JpaRepository<Mascota, Long>{
-    List<Mascota> findByNombreContaining(String nombreMascota);
+
+    List<Mascota> findByNombreMascotaContainingIgnoreCase(String nombreMascota);
+
+    List<Mascota> findByIdUsuario(Long idUsuario);
 }

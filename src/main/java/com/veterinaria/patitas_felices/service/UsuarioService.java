@@ -37,7 +37,7 @@ public class UsuarioService {
 
 //---Busca entre las usuarios creados por su nombre---
     public List<Usuario> buscarPorNombre(String nombre){
-        return usuarioRepository.findByNombreContaining(nombre);
+        return usuarioRepository.findByNombreUsuarioContainingIgnoreCase(nombre);
     }
 
 //---Crea usuarios---

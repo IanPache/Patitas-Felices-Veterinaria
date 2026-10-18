@@ -85,4 +85,12 @@ public class Mascota {
     public void setMascotaVacunada(boolean mascotaVacunada){
         this.mascotaVacunada = mascotaVacunada;
     }
+
+    public long getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(long idUsuario) {
+        this.idUsuario = idUsuario;
+    }
 }
