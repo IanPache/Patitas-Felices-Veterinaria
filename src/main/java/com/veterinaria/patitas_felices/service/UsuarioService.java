@@ -76,4 +76,13 @@ public void eliminarUsuario(Long id) {
     Usuario usuario = buscarPorId(id);
     usuarioRepository.delete(usuario);
     }
+
+//---Inicio de sesion---
+    public Usuario login(String email, String contra){
+        Optional<Usuario> usuario = usuarioRepository.findByEmailUsuario(email);
+        if(usuario.isPresent() && usuario.get().getContraUsuario().equals(contra)){
+            return usuario.get();
+        }
+        throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Email o Contraseña incorrectos");
+    }
 }

@@ -9,4 +9,6 @@ public interface MascotaRepository extends JpaRepository<Mascota, Long>{
     List<Mascota> findByNombreMascotaContainingIgnoreCase(String nombreMascota);
 
     List<Mascota> findByIdUsuario(Long idUsuario);
+
+    List<Mascota> findByIdUsuarioAndNombreMascotaContainingIgnoreCase(Long idUsuario, String nombreMascota);
 }

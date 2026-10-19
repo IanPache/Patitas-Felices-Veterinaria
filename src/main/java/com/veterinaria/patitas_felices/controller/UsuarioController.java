@@ -12,7 +12,7 @@ import com.veterinaria.patitas_felices.model.Usuario;
 import com.veterinaria.patitas_felices.service.UsuarioService;
 
 @RestController
-@RequestMapping("/usuarios")
+@RequestMapping("/api/usuarios")
 public class UsuarioController {
     private final UsuarioService usuarioService;
 
@@ -34,5 +34,10 @@ public class UsuarioController {
     public String eliminarUsuario(@PathVariable Long id){
         usuarioService.eliminarUsuario(id);
         return "Usuario elimindo correctamente";
+    }
+
+    @PostMapping("/login")
+    public Usuario loginUsuario(@RequestBody Usuario nuevoUsuario) {
+        return usuarioService.login(nuevoUsuario.getEmailUsuario(), nuevoUsuario.getContraUsuario());
     }
 }

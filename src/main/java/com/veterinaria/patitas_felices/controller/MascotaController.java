@@ -12,10 +12,10 @@ import org.springframework.web.bind.annotation.RestController;
 import com.veterinaria.patitas_felices.model.Mascota;
 import com.veterinaria.patitas_felices.service.MascotaService;
 import org.springframework.web.bind.annotation.PutMapping;
-
+import org.springframework.web.bind.annotation.RequestParam;
 
 @RestController
-@RequestMapping("/mascotas")
+@RequestMapping("/api/mascotas")
 public class MascotaController {
         private final MascotaService mascotaService;
 
@@ -49,4 +49,13 @@ public class MascotaController {
         return "Mascota eliminda correctamente";
     }
 
+    @GetMapping("/usuario/{idUsuario}")
+    public List<Mascota> listarPorUsuario(@PathVariable Long idUsuario) {
+        return mascotaService.listarPorUsuario(idUsuario);
+    }
+
+@GetMapping("/usuario/{idUsuario}/buscar")
+    public List<Mascota> buscarPorNombre(@PathVariable Long idUsuario, @RequestParam String nombre) {
+        return mascotaService.buscarPorNombreYUsuario(idUsuario, nombre);
+    }
 }

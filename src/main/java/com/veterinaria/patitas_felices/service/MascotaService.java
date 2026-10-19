@@ -67,6 +67,12 @@ public class MascotaService {
         );
     }
         mascota.setNombreMascota(datosNuevos.getNombreMascota());
+        mascota.setEspecieMascota(datosNuevos.getEspecieMascota());
+        mascota.setGeneroMascota(datosNuevos.getGeneroMascota());
+        mascota.setTamanioMascota(datosNuevos.getTamanioMascota());
+        mascota.setEdadMascota(datosNuevos.getEdadMascota());
+        mascota.setMascotaCastrada(datosNuevos.getMascotaCastrada());
+        mascota.setMascotaVacunada(datosNuevos.getMascotaVacunada());
         return mascotaRepository.save(mascota);
     }
 
@@ -74,5 +80,15 @@ public class MascotaService {
 public void eliminarMascota(Long id) {
     Mascota mascota = buscarPorId(id);
     mascotaRepository.delete(mascota);
+    }
+
+//---Lista las Mascotas del Usuario---
+    public List<Mascota> listarPorUsuario(Long idUsuario){
+        return mascotaRepository.findByIdUsuario(idUsuario);
+    }
+
+//---Busca mascotas de un usuario por nombre---
+    public List<Mascota> buscarPorNombreYUsuario(Long idUsuario, String nombre){
+        return mascotaRepository.findByIdUsuarioAndNombreMascotaContainingIgnoreCase(idUsuario, nombre);
     }
 }
