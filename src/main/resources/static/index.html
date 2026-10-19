@@ -2,9 +2,65 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Patitas Felices</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Patitas Felices funciona</h1>
+    <header>
+        <h1>Patitas Felices</h1>
+        <button id="btnLogout" class="oculto">Cerrar sesión</button>
+    </header>
+
+    <main>
+        <p id="mensaje"></p>
+
+        <section id="seccionAuth">
+            <form id="formRegistro">
+                <h2>Registrarse</h2>
+                <input type="text" id="regNombre" placeholder="Nombre" required>
+                <input type="email" id="regEmail" placeholder="Email" required>
+                <input type="password" id="regContra" placeholder="Contraseña" required>
+                <button type="submit">Crear cuenta</button>
+            </form>
+
+            <form id="formLogin">
+                <h2>Iniciar sesión</h2>
+                <input type="email" id="logEmail" placeholder="Email" required>
+                <input type="password" id="logContra" placeholder="Contraseña" required>
+                <button type="submit">Entrar</button>
+            </form>
+        </section>
+
+        <section id="seccionApp" class="oculto">
+            <p id="saludo"></p>
+
+            <form id="formBusqueda">
+                <h2>Buscar mascota</h2>
+                <input type="text" id="busqueda" placeholder="Nombre de la mascota">
+                <button type="submit">Buscar</button>
+                <button type="button" id="btnTodas">Ver todas</button>
+            </form>
+
+            <form id="formMascota">
+                <h2 id="tituloForm">Nueva mascota</h2>
+                <input type="hidden" id="idMascota">
+                <input type="text" id="nombreMascota" placeholder="Nombre" required>
+                <input type="text" id="especieMascota" placeholder="Especie (Perro, Gato...)" required>
+                <input type="text" id="generoMascota" placeholder="Género">
+                <input type="text" id="tamanioMascota" placeholder="Tamaño">
+                <input type="number" id="edadMascota" placeholder="Edad" min="0">
+                <label><input type="checkbox" id="mascotaCastrada"> Castrada</label>
+                <label><input type="checkbox" id="mascotaVacunada"> Vacunada</label>
+                <button type="submit">Guardar</button>
+                <button type="button" id="btnCancelar" class="oculto">Cancelar edición</button>
+            </form>
+
+            <h2>Mis mascotas</h2>
+            <div id="listaMascotas"></div>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
 </body>
 </html>
